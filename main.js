@@ -17,7 +17,54 @@ const rockPaperScissors = (hand1, hand2) => {
   // Write code here
   // Use the unit test to see what is expected
 
+hand1 = hand1.toLowerCase().trim();
+hand2 = hand2.toLowerCase().trim();
+
+switch(hand1){
+  case 'rock':
+    if (hand2 == 'scissors') {
+      return "Hand one wins!";
+    }
+    else if (hand2 == 'rock') {
+      return "It's a tie!";
+    }
+    else {
+      return "Hand two wins!";
+    }
+    //break; --> does not require break because of return statements as the function exits
+  
+  case 'paper':
+    if (hand2 == 'rock') {
+      return "Hand one wins!";
+    }
+    else if (hand2 == 'paper') {
+      return "It's a tie!";
+    }
+    else {
+      return "Hand two wins!";
+    }
+    //break; --> does not require break because of return statements as the function exits
+
+  case 'scissors':
+    if (hand2 == 'paper') {
+      return "Hand one wins!";
+    }
+    else if (hand2 == 'scissors') {
+      return "It's a tie!";
+    }
+    else {
+      return "Hand two wins!";
+    }
+    //break; --> does not require break because of return statements as the function exits
+  
+  default:
+    return "Please enter values as hand,rock,scissors"
+  }
+  
+
 }
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -49,7 +96,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
+      assert.equal(rockPaperScissors('rOcK', ' paper '), "It's a tie!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
